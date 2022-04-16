@@ -1,0 +1,9 @@
+{
+  "packages": [
+    "packages/*"
+  ],
+  "version": "independent",
+  "npmClientArgs": [
+    "--package-lock=false"
+  ]
+}

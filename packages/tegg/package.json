@@ -1,0 +1,24 @@
+{
+  "name": "@marmot/tegg-validate",
+  "description": "",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.d.ts"
+  ],
+  "scripts": {
+    "clean": "tsc -b --clean",
+    "tsc": "npm run clean && tsc -p ./tsconfig.json",
+    "prepublishOnly": "npm run tsc"
+  },
+  "dependencies": {
+    "@marmot/node-validate": "^0.1.0"
+  },
+  "devDependencies": {
+    "@eggjs/tegg": "^1.0.2"
+  },
+  "gitHead": "b7a6efec2766008cf54fb7af17f868d043d2eb70"
+}

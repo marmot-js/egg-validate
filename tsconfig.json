@@ -1,0 +1,10 @@
+{
+  "extends": "@eggjs/tsconfig",
+  "compilerOptions": {
+    "useUnknownInCatchVariables": false,
+    "emitDecoratorMetadata": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
