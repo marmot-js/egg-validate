@@ -1,7 +1,7 @@
 {
   "name": "@marmot/egg-validate",
   "description": "validate for eggjs",
-  "version": "0.2.0",
+  "version": "0.3.0-alpha.0",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
@@ -15,7 +15,7 @@
     "prepublishOnly": "npm run tsc"
   },
   "dependencies": {
-    "@marmot/node-validate": "^0.2.0"
+    "@marmot/node-validate": "^0.3.0-alpha.0"
   },
   "devDependencies": {
     "egg": "^2.33.1",
