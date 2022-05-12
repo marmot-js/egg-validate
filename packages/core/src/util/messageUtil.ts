@@ -39,14 +39,22 @@ export class MessageUtil {
         return this.error(e);
     }
   }
+
   private static required(e: ErrorObject): IValidateError {
-    return { field: e.params.missingProperty, message: 'required' };
+    const prefix = this.getFieldPath(e.instancePath);
+    const key = e.params.missingProperty;
+    const field = prefix ? `${prefix}.${key}` : key;
+    return { field, message: 'required' };
   }
 
   private static error(e: ErrorObject, message?: string): IValidateError {
     return {
-      field: e.instancePath?.slice(1).replace(/\//g, '.') || '',
+      field: this.getFieldPath(e.instancePath),
       message: message || e.message,
     };
+  }
+
+  private static getFieldPath(path: string) {
+    return path?.slice(1).replace(/\//g, '.') || '';
   }
 }
