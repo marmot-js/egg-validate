@@ -61,7 +61,7 @@ export class SchemaUtil {
       case 'object':
         return item.items ? { ...item, items: this.arrayItemSchema(item.items) } : item as ISchema;
       default:
-        const schema = SchemaUtil.arrayItemSchema(item);
+        const schema = this.getObjectSchema(item);
         return schema ?? { type: 'object' };
     }
   }
