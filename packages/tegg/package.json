@@ -18,7 +18,8 @@
     "@marmot/node-validate": "^0.2.0"
   },
   "devDependencies": {
-    "@eggjs/tegg": "^1.0.2"
+    "@eggjs/tegg": "^1.0.2",
+    "typescript": "^4.6.3"
   },
   "gitHead": "b7a6efec2766008cf54fb7af17f868d043d2eb70"
 }
