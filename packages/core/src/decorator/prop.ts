@@ -35,7 +35,7 @@ export const Prop = (options: IPropOptions = {}) => {
     } else {
       schema.properties![propertyKey] = SchemaUtil.getObjectSchema(type)!;
     }
-    if (defaultValue) {
+    if (defaultValue !== undefined) {
       schema.properties![propertyKey].default = defaultValue;
     }
   };
