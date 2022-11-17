@@ -117,7 +117,7 @@ export const EnumArg = <T extends Array<any>> ({ values, ...options }: EnumArgOp
 export type ArrayItemArgOptions = IArgOptions & { items: ArrayItems };
 export const ArrayItemArg = ({ items, ...options }: ArrayItemArgOptions) => ArgAlias<ArrayItems>(ArrayItem, items, options);
 
-export type ArrayTupleArgOptions = IPropOptions & { items: ArrayItemType[] };
+export type ArrayTupleArgOptions = IArgOptions & { items: ArrayItemType[] };
 export const ArrayTupleArg = ({ items, ...options }: ArrayTupleArgOptions) => ArgAlias<ArrayItemType[]>(ArrayTuple, items, options);
 
 export type ConstArgOptions<T> = IArgOptions & { value: T };

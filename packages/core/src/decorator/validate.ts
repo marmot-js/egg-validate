@@ -4,7 +4,7 @@ import { MessageUtil } from '../util/messageUtil';
 import { IValidateError } from '../model/common';
 
 export interface IValidateOptions {
-  onError?: (error: any) => void;
+  onError?: (error: IValidateError[]) => void;
 }
 
 const DEFAULT_ERROR_HANDLER = (errors: IValidateError[]) => {

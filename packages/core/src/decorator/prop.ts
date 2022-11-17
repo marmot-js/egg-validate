@@ -4,7 +4,7 @@ import { MetadataClass } from '../util/metadata/metadataUtil';
 import { SchemaUtil } from '../util/schemaUtil';
 
 export interface IPropOptions {
-  type?: SchemaType | MetadataClass;
+  type?: SchemaType | SchemaType[] | MetadataClass;
   default?: any;
   message?: string;
 }
@@ -30,7 +30,7 @@ export const Prop = (options: IPropOptions = {}) => {
     if (!schema.required!.includes(propertyKey)) {
       schema.required!.push(propertyKey);
     }
-    if (typeof type === 'string') {
+    if (typeof type === 'string' || Array.isArray(type)) {
       schema.properties![propertyKey] = { type };
     } else {
       schema.properties![propertyKey] = SchemaUtil.getObjectSchema(type)!;

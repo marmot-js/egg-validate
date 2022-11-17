@@ -21,11 +21,11 @@ export class SchemaUtil {
     return MetadataUtil.getOwnMetadata<ISchema>(Identifier.ObjectSchema, clazz)!;
   }
 
-  static getMethodSchema(clazz:  MetadataClass, propertyKey: string) {
+  static getMethodSchema(clazz: MetadataClass, propertyKey: string) {
     return MetadataUtil.getOwnMetadata<Map<string, ISchema>>(Identifier.MethodSchema, clazz)?.get(propertyKey);
   }
 
-  static getOrInitMethodSchema(clazz:  MetadataClass, propertyKey: string) {
+  static getOrInitMethodSchema(clazz: MetadataClass, propertyKey: string) {
     const schemaMap = MetadataUtil.initOwnMapMetadata<string, ISchema>(Identifier.MethodSchema, clazz, new Map());
     return MapUtil.getOrStore(schemaMap, propertyKey, {
       type: 'object',
@@ -60,9 +60,10 @@ export class SchemaUtil {
         return { type: item };
       case 'object':
         return item.items ? { ...item, items: this.arrayItemSchema(item.items) } : item as ISchema;
-      default:
+      default: {
         const schema = this.getObjectSchema(item);
         return schema ?? { type: 'object' };
+      }
     }
   }
 }

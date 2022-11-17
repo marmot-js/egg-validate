@@ -1,3 +1,4 @@
+import { SchemaType } from '../model/ajv';
 import { MetadataClass } from '../util/metadata/metadataUtil';
 import { ObjectUtil } from '../util/objectUtil';
 import { SchemaUtil } from '../util/schemaUtil';
@@ -5,7 +6,7 @@ import { TypeUtil } from '../util/typeUtil';
 
 export interface IArgOptions {
   name?: string;
-  type?: string | MetadataClass;
+  type?: SchemaType | SchemaType[] | MetadataClass;
   default?: any;
 }
 
@@ -28,7 +29,7 @@ export const Arg = (options: IArgOptions = {}) => {
     if (!schema.required!.includes(name)) {
       schema.required!.push(name);
     }
-    if (typeof type === 'string') {
+    if (typeof type === 'string' || Array.isArray(type)) {
       schema.properties![name] = { type, default: defaultValue };
       return;
     }

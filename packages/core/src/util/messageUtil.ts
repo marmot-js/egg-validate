@@ -30,7 +30,7 @@ export class MessageUtil {
       case 'exclusiveMinimum':
         return this.error(e, `must be greater than ${e.params.allowedValue}`);
       case 'pattern':
-        return this.error(e, `does not match pattern`);
+        return this.error(e, 'does not match pattern');
       case 'maxItems':
         return this.error(e, `must have fewer than ${e.params.limit} items`);
       case 'minItems':
